@@ -13,6 +13,7 @@
     "react-datetime-picker": "^3.0.2",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "react-toastify": "^6.0.8",
     "react-twitter-widgets": "^1.9.5"
   },
   "scripts": {

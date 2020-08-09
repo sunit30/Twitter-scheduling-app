@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
         {this.props.info ? (
           <div>
             <div>Welcome {this.props.info.displayName}</div>
-            <Tl name={this.props.info.username}></Tl>
+            {/* <Tl name={this.props.info.username}></Tl> */}
           </div>
         ) : (
           <div>sjfbsfbsfk</div>

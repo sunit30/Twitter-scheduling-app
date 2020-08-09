@@ -2,6 +2,8 @@ import React from "react";
 import { format } from "morgan";
 import date from "date-and-time";
 import timespan from "date-and-time/plugin/timespan";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Schedule extends React.Component {
   constructor(props) {
@@ -11,15 +13,20 @@ class Schedule extends React.Component {
   render() {
     //console.log(this.props.date, new Date());
     return (
-      <form
-        id="mesSender"
-        //style={{ display: this.props.showForm ? "block" : "none" }}
-        onSubmit={this.addComment}
-      >
-        <textarea id="newMessage"></textarea>
-        <br />
-        <button type="submit">Post to Twitter</button>
-      </form>
+      <div>
+        <div id="fail"></div>
+        <form
+          id="mesSender"
+          //style={{ display: this.props.showForm ? "block" : "none" }}
+          onSubmit={this.addComment}
+        >
+          <textarea id="newMessage"></textarea>
+          <br />
+          <button type="submit">Post to Twitter</button>
+        </form>
+
+        <ToastContainer position="top-center" />
+      </div>
     );
   }
   addComment = (event) => {
@@ -43,8 +50,21 @@ class Schedule extends React.Component {
       xhr.open("POST", "http://localhost:5000/comment/", true);
       xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       xhr.onreadystatechange = function () {
-        if (xhr.readyState != 4 || xhr.status != 200) return;
-        console.log(xhr.responseText);
+        if (xhr.readyState != 4 || xhr.status != 200) {
+          console.log("error!!!");
+          document.getElementById("fail").innerHTML =
+            "Could'nt post...Saved to Drafts.";
+
+          return;
+        }
+        console.log("response", xhr.responseText);
+        if (JSON.parse(xhr.responseText).errors) {
+          alert("error");
+        } else {
+          document.getElementById("fail").innerHTML = "";
+          const success = () => toast("Tweet Posted");
+          success();
+        }
       };
       xhr.send(JSON.stringify(newTweetComment));
     };
@@ -54,7 +74,6 @@ class Schedule extends React.Component {
       setTimeout(tweetIt, 1000 * 60 * minutes);
     }
     document.getElementById("newMessage").value = "";
-    alert("Tweet Posted");
   };
 }
 
