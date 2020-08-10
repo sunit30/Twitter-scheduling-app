@@ -9,7 +9,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showDash: false, inf: null };
+    this.state = { showDash: false, inf: {} };
     this.passtoDash = this.passtoDash.bind(this);
   }
 
@@ -26,10 +26,12 @@ class App extends React.Component {
           authHandler={this.authHandler}
           infoHandler={this.passtoDash}
         ></Auth>
-        <Dashboard
-          showDash={this.state.showDash}
-          info={this.state.inf}
-        ></Dashboard>
+        {this.state.inf ? (
+          <Dashboard
+            showDash={this.state.showDash}
+            info={this.state.inf}
+          ></Dashboard>
+        ) : null}
       </div>
     );
   }

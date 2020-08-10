@@ -4,13 +4,17 @@ import date from "date-and-time";
 import timespan from "date-and-time/plugin/timespan";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import firebase from "../../../fire";
 
 class Schedule extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.postNow = false;
   }
   render() {
+    //console.log("date", this.props.info);
     //console.log(this.props.date, new Date());
     return (
       <div>
@@ -45,11 +49,12 @@ class Schedule extends React.Component {
     // let time = Number(time_str);
     // // ------------------- decimal or negative
     // alert(time);
+
     let tweetIt = () => {
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "http://localhost:5000/comment/", true);
       xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-      xhr.onreadystatechange = function () {
+      xhr.onreadystatechange = () => {
         if (xhr.readyState != 4 || xhr.status != 200) {
           console.log("error!!!");
           document.getElementById("fail").innerHTML =
@@ -64,14 +69,67 @@ class Schedule extends React.Component {
           document.getElementById("fail").innerHTML = "";
           const success = () => toast("Tweet Posted");
           success();
+          console.log("thisssssssss", this.props.info);
+          if (this.postNow != true) {
+            if (this.props.info) {
+              let keyarr;
+              fetch(
+                `https://pro-organiser1.firebaseio.com/queue/${this.props.info.username}.json`
+              )
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data) {
+                    console.log("fetch", data);
+                    keyarr = Object.keys(data).filter((key) => {
+                      console.log("key.tweet", typeof key);
+
+                      return data[key].tweet == newTweetComment.comment;
+                    });
+                    console.log("keyarr", keyarr[0]);
+                    firebase
+                      .database()
+                      .ref(
+                        "queue/" +
+                          this.props.info.username +
+                          "/" +
+                          keyarr[0] +
+                          "/"
+                      )
+                      .remove()
+                      // axios
+                      //   .post(
+                      //     `https://pro-organiser1.firebaseio.com/queue/${this.props.info.username}/${keyarr[0]}.json`,
+                      //     ""
+                      //   )
+                      .then(() => {
+                        this.props.callDash();
+                      });
+                  }
+                });
+            }
+          }
         }
       };
       xhr.send(JSON.stringify(newTweetComment));
     };
-    if (ts === 0) {
+
+    if (ts == 0) {
+      this.postNow = true;
       tweetIt();
+      this.postNow = false;
     } else {
-      setTimeout(tweetIt, 1000 * 60 * minutes);
+      let tout = setTimeout(tweetIt, 1000 * 60 * minutes);
+      axios
+        .post(
+          `https://pro-organiser1.firebaseio.com/queue/${this.props.info.username}.json`,
+          {
+            tweet: newTweetComment.comment,
+            timeoutId: tout,
+          }
+        )
+        .then(() => {
+          this.props.callDash();
+        });
     }
     document.getElementById("newMessage").value = "";
   };

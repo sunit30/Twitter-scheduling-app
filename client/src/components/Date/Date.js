@@ -28,10 +28,15 @@ class MyApp extends Component {
           <Schedule
             date={this.state.date}
             selected={this.state.selected}
+            info={this.props.info}
+            callDash={this.callDash}
           ></Schedule>
         ) : null}
       </div>
     );
   }
+  callDash = () => {
+    this.props.forceQueue();
+  };
 }
 export default MyApp;
