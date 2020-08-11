@@ -18,7 +18,9 @@ class Dashboard extends React.Component {
         <br />
         {this.state.queue ? (
           <Queue info={this.props.info} queue={this.state.queue}></Queue>
-        ) : null}
+        ) : (
+          <div>Queue is empty</div>
+        )}
         {this.props.info ? (
           <div>
             <div>Welcome {this.props.info.displayName}</div>

@@ -1,3 +1,9 @@
+* {
+  font-family: "Quattrocento Sans", sans-serif;
+
+  color: rgb(63, 63, 63);
+  background-color: rgb(249, 249, 249);
+}
 .App {
   text-align: center;
 }

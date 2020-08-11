@@ -1,4 +1,5 @@
 import React from "react";
+import "./queue.scss";
 
 class Queue extends React.Component {
   constructor(props) {
@@ -46,12 +47,20 @@ class Queue extends React.Component {
     let arr = null;
     if (this.state.queueObj) {
       arr = Object.values(this.state.queueObj).map((obj) => {
+        let d = new Date(obj.date).toLocaleString();
         //console.log("obj", obj.tweet);
-        return obj.tweet;
+        return (
+          <div className="qblock">
+            {obj.tweet}
+            <div className="bottomFlex">
+              <div className="date">{d}</div>
+              <button className="delete">Delete</button>
+            </div>
+          </div>
+        );
       });
     }
-
-    return <div>{arr}</div>;
+    return <div className="qcontain"> {arr}</div>;
     //console.log(this.state.queue);
 
     // console.log("length", data.length);

@@ -57,8 +57,7 @@ class Schedule extends React.Component {
       xhr.onreadystatechange = () => {
         if (xhr.readyState != 4 || xhr.status != 200) {
           console.log("error!!!");
-          document.getElementById("fail").innerHTML =
-            "Could'nt post...Saved to Drafts.";
+          document.getElementById("fail").innerHTML = "Could'nt post.";
 
           return;
         }
@@ -125,6 +124,7 @@ class Schedule extends React.Component {
           {
             tweet: newTweetComment.comment,
             timeoutId: tout,
+            date: this.props.date,
           }
         )
         .then(() => {
