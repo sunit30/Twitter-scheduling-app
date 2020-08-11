@@ -25,8 +25,9 @@ class Tl extends React.Component {
   componentDidMount() {
     const anchor = document.createElement("a");
     anchor.setAttribute("class", "twitter-timeline");
-    anchor.setAttribute("data-width", "800");
-    anchor.setAttribute("data-tweet-limit", "5");
+    anchor.setAttribute("data-width", "780");
+    anchor.setAttribute("data-height", "550");
+    anchor.setAttribute("data-tweet-limit", "10");
     anchor.setAttribute("data-chrome", "noheader nofooter noborders");
     anchor.setAttribute("href", `https://twitter.com/${this.props.name}`);
     document.getElementsByClassName("twitter-embed")[0].appendChild(anchor);

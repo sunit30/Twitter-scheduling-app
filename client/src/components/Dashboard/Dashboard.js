@@ -3,6 +3,7 @@ import { format } from "morgan";
 import Tl from "../Tl/Tl";
 import Date from "../Date/Date";
 import Queue from "../Queue/Queue";
+import "../Dashboard/Dashboard.scss";
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -14,21 +15,27 @@ class Dashboard extends React.Component {
         id="dashboard"
         style={{ display: this.props.showDash ? "block" : "none" }}
       >
-        You are Logged In
-        <br />
+        <div className="navbar">
+          <div>PostIt</div>
+
+          {this.props.info ? (
+            <div>Welcome {this.props.info.displayName}</div>
+          ) : (
+            <div></div>
+          )}
+        </div>
+        {this.props.info.username ? (
+          <div className="tl">
+            <Tl name={this.props.info.username}></Tl>
+          </div>
+        ) : null}
+
         {this.state.queue ? (
           <Queue info={this.props.info} queue={this.state.queue}></Queue>
         ) : (
           <div>Queue is empty</div>
         )}
-        {this.props.info ? (
-          <div>
-            <div>Welcome {this.props.info.displayName}</div>
-            {/* <Tl name={this.props.info.username}></Tl> */}
-          </div>
-        ) : (
-          <div>sjfbsfbsfk</div>
-        )}
+
         <Date info={this.props.info} forceQueue={this.forceQueue}></Date>
       </div>
     );

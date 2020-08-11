@@ -19,7 +19,7 @@
   box-shadow: 0 0 5px 1px rgb(238, 238, 238);
   color: rgba(17, 17, 63, 0.644);
   font-size: 1.28rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 .date {
   box-sizing: border-box;
@@ -49,6 +49,8 @@
   transition: box-shadow 0.3s, background-color 0.3s linear;
 }
 .delete:hover {
+  border-color: rgba(253, 110, 110, 0.733);
+  font-weight: 900;
   background-color: white;
   box-shadow: 0 0 10px 1px rgb(226, 226, 226);
   cursor: pointer;
