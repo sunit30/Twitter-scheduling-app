@@ -1,5 +1,8 @@
 import React from "react";
 import "./queue.scss";
+import firebase from "../../fire";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Queue extends React.Component {
   constructor(props) {
@@ -54,8 +57,15 @@ class Queue extends React.Component {
             {obj.tweet}
             <div className="bottomFlex">
               <div className="date">{d}</div>
-              <button className="delete">Delete</button>
+              <button
+                value={obj.tweet}
+                onClick={this.deleteFunc}
+                className="delete"
+              >
+                Delete
+              </button>
             </div>
+            <ToastContainer position="top-center" />
           </div>
         );
       });
@@ -66,6 +76,30 @@ class Queue extends React.Component {
     // console.log("length", data.length);
     // return data.length ? 1 : 0;
   }
+  deleteFunc = (event) => {
+    let r = window.confirm("Delete Scheduled Tweet?");
+    if (r == true) {
+      let key;
+
+      key = Object.keys(this.state.queueObj).filter((key) => {
+        return this.state.queueObj[key].tweet == event.target.value;
+      });
+      clearTimeout(this.state.queueObj[key[0]].timeoutId);
+
+      firebase
+        .database()
+        .ref("queue/" + this.props.info.username + "/" + key[0] + "/")
+        .remove()
+        .then(() => {
+          this.props.forceQueue();
+          let deleted = () => toast("Tweet Deleted");
+          deleted();
+        });
+    }
+    // .then(() => {
+    //   this.props.delete(false);
+    // });
+  };
 }
 
 export default Queue;

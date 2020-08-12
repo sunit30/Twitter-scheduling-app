@@ -31,7 +31,11 @@ class Dashboard extends React.Component {
         ) : null}
 
         {this.state.queue ? (
-          <Queue info={this.props.info} queue={this.state.queue}></Queue>
+          <Queue
+            forceQueue={this.forceQueue}
+            info={this.props.info}
+            queue={this.state.queue}
+          ></Queue>
         ) : (
           <div>Queue is empty</div>
         )}
@@ -40,6 +44,7 @@ class Dashboard extends React.Component {
       </div>
     );
   }
+
   componentDidMount() {
     fetch(`https://pro-organiser1.firebaseio.com/queue.json`)
       .then((response) => response.json())
