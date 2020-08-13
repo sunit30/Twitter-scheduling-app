@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DateTimePicker from "react-datetime-picker";
 import Form from "../Form/Form";
 import Schedule from "./Schedule/Schedule";
+import "./Date.scss";
 
 class MyApp extends Component {
   state = {
@@ -16,7 +17,7 @@ class MyApp extends Component {
 
   render() {
     return (
-      <div>
+      <div id="date_div">
         <DateTimePicker
           //format="yyyy MM dd HH mm ss"
           onChange={this.onChange}

@@ -8,7 +8,7 @@
   position: fixed;
 }
 .navbar {
-  border-bottom: 3px solid #e6ecf0;
+  border-bottom: 5px solid #e6ecf0;
 
   background-color: #eaf0f3;
   display: flex;
@@ -27,7 +27,7 @@
 }
 .brand_name {
   font-weight: 900;
-  padding-top: 12px;
+  padding-top: 14px;
   background-color: #eaf0f3;
   font-size: 1.5rem;
 }
@@ -45,11 +45,13 @@
 .tl {
   width: 60%;
   margin: auto;
+  border: 1px solid #e6ecf0;
 }
+
 .body {
   padding-top: 100px;
   display: flex;
-  border-left: 3px solid #e6ecf0;
+  border-left: 5px solid #e6ecf0;
 }
 .sidenav {
   margin-top: 40px;
@@ -69,13 +71,14 @@
 .sidenav .sidenav_div {
   padding: 6px 8px 6px 16px;
   margin: 0 5px 12px 5px;
-  border: 3px solid #e6ecf0;
+  border: 5px solid #e6ecf0;
 
   border-radius: 10px;
 }
 
 .sidenav .sidenav_div:hover {
-  color: #f1f1f1;
+  color: #d5d7d8;
+  cursor: pointer;
 }
 .active {
   background-color: rgb(141, 141, 141);
