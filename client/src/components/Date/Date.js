@@ -16,7 +16,14 @@ class MyApp extends Component {
   };
 
   render() {
+    //console.log("in", this.props.showDate);
     return (
+      // <div id="myModal" className="modal">
+      //   <div className="modal-content">
+      //     <span onClick={this.props.hideDate()} className="close">
+      //       &times;
+      //     </span>
+
       <div id="date_div">
         <DateTimePicker
           //format="yyyy MM dd HH mm ss"
@@ -34,6 +41,8 @@ class MyApp extends Component {
           ></Schedule>
         ) : null}
       </div>
+      //   </div>
+      // </div>
     );
   }
   callDash = () => {

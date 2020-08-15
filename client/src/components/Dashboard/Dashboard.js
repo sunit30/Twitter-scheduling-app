@@ -4,28 +4,16 @@ import Tl from "../Tl/Tl";
 import Date from "../Date/Date";
 import Queue from "../Queue/Queue";
 import "../Dashboard/Dashboard.scss";
+import Sidenav from "../sidenav/Sidenav";
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { queue: null };
+    this.state = {
+      queue: null,
+      //showDateComp: false,
+    };
   }
   render() {
-    var btns = document.getElementsByClassName("sidenav_div");
-
-    // Loop through the buttons and add the active class to the current/clicked button
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active");
-
-        // If there's no active class
-        if (current.length > 0) {
-          current[0].className = current[0].className.replace(" active", "");
-        }
-
-        // Add the active class to the current/clicked button
-        this.className += " active";
-      });
-    }
     return (
       <div
         id="dashboard"
@@ -38,7 +26,7 @@ class Dashboard extends React.Component {
 
             {this.props.info ? (
               <div id="navbar_inner_flex">
-                <div>Welcome {this.props.info.displayName} </div>
+                <div>Welcome, {this.props.info.displayName} </div>
                 {this.props.info._json ? (
                   <div id="profile_pic_div">
                     <img
@@ -54,13 +42,9 @@ class Dashboard extends React.Component {
             )}
           </div>
         </div>
+
         <div className="body">
-          <div className="sidenav">
-            <div className="sidenav_div">1</div>
-            <div className="sidenav_div">2</div>
-            <div className="sidenav_div">3</div>
-            <div className="sidenav_div">4</div>
-          </div>
+          <Sidenav showDate={this.showDateFunc}></Sidenav>
           <div className="main">
             {this.props.info.username ? (
               <div className="tl">
@@ -78,12 +62,24 @@ class Dashboard extends React.Component {
               <div>Queue is empty</div>
             )}
 
-            <Date info={this.props.info} forceQueue={this.forceQueue}></Date>
+            <Date
+              //showDate={this.state.showDateComp}
+              //hideDate={this.hideDateFunc}
+              info={this.props.info}
+              forceQueue={this.forceQueue}
+            ></Date>
           </div>
         </div>
       </div>
     );
   }
+  // showDateFunc = () => {
+  //   console.log(this.state.showDateComp);
+  //   this.setState({ showDateComp: true });
+  // };
+  // hideDateFunc = () => {
+  //   this.setState({ showDateComp: false });
+  // };
 
   componentDidMount() {
     fetch(`https://pro-organiser1.firebaseio.com/queue.json`)
