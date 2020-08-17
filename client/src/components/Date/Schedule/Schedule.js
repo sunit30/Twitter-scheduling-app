@@ -19,13 +19,21 @@ class Schedule extends React.Component {
     //console.log(this.props.date, new Date());
     return (
       <div>
-        <div id="fail"></div>
+        {/* <div id="fail"></div> */}
         <form
           id="mesSender"
           //style={{ display: this.props.showForm ? "block" : "none" }}
           onSubmit={this.addComment}
         >
-          <textarea id="newMessage"></textarea>
+          {this.props.tweetToUpdate ? (
+            <textarea
+              defaultValue={this.props.tweetToUpdate}
+              id="newMessage"
+            ></textarea>
+          ) : (
+            <textarea id="newMessage"></textarea>
+          )}
+
           <br />
           <button type="submit">Post to Twitter</button>
         </form>
@@ -58,7 +66,7 @@ class Schedule extends React.Component {
       xhr.onreadystatechange = () => {
         if (xhr.readyState != 4 || xhr.status != 200) {
           console.log("error!!!");
-          document.getElementById("fail").innerHTML = "Could'nt post.";
+          //document.getElementById("fail").innerHTML = "Could'nt post.";
 
           return;
         }
@@ -66,7 +74,7 @@ class Schedule extends React.Component {
         if (JSON.parse(xhr.responseText).errors) {
           alert("error");
         } else {
-          document.getElementById("fail").innerHTML = "";
+          // document.getElementById("fail").innerHTML = "";
           const success = () => toast("Tweet Posted");
           success();
           console.log("thisssssssss", this.props.info);
@@ -117,6 +125,7 @@ class Schedule extends React.Component {
       this.postNow = true;
       tweetIt();
       this.postNow = false;
+      this.props.closeText();
     } else {
       let tout = setTimeout(tweetIt, 1000 * 60 * minutes);
       axios
@@ -130,6 +139,7 @@ class Schedule extends React.Component {
         )
         .then(() => {
           this.props.callDash();
+          this.props.closeText();
         });
     }
     document.getElementById("newMessage").value = "";

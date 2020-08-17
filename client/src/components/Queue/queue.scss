@@ -39,6 +39,9 @@
   display: flex;
   justify-content: space-between;
 }
+.bottomRightFlex {
+  display: flex;
+}
 .delete {
   outline-style: none;
   border-color: rgba(253, 110, 110, 0.582);
@@ -47,9 +50,26 @@
   border-radius: 5px;
   font-size: 15px;
   transition: box-shadow 0.3s, background-color 0.3s linear;
+  margin-right: 10px;
 }
 .delete:hover {
   border-color: rgba(253, 110, 110, 0.733);
+  font-weight: 900;
+  background-color: white;
+  box-shadow: 0 0 10px 1px rgb(226, 226, 226);
+  cursor: pointer;
+}
+.update {
+  outline-style: none;
+  border-color: rgba(69, 206, 28, 0.582);
+  padding: 2px 12px;
+  font-weight: 800;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: box-shadow 0.3s, background-color 0.3s linear;
+}
+.update:hover {
+  border-color: rgba(69, 206, 28, 0.733);
   font-weight: 900;
   background-color: white;
   box-shadow: 0 0 10px 1px rgb(226, 226, 226);

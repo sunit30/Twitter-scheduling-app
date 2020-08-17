@@ -14,6 +14,12 @@ class MyApp extends Component {
   onSelect = () => {
     this.setState({ Selected: true });
   };
+  closeText = () => {
+    this.setState({ Selected: false });
+    if (this.props.closeDate) {
+      this.props.closeDate();
+    }
+  };
 
   render() {
     //console.log("in", this.props.showDate);
@@ -35,9 +41,11 @@ class MyApp extends Component {
         {this.state.Selected == true ? (
           <Schedule
             date={this.state.date}
-            selected={this.state.selected}
+            selected={this.state.Selected}
             info={this.props.info}
             callDash={this.callDash}
+            closeText={this.closeText}
+            tweetToUpdate={this.props.tweetToUpdate}
           ></Schedule>
         ) : null}
       </div>
