@@ -1,6 +1,6 @@
 import React from "react";
 import { format } from "morgan";
-import Tl from "../Tl/Tl";
+
 import Date from "../Date/Date";
 import Queue from "../Queue/Queue";
 import "../Dashboard/Dashboard.scss";
@@ -44,14 +44,11 @@ class Dashboard extends React.Component {
         </div>
 
         <div className="body">
-          <Sidenav showDate={this.showDateFunc}></Sidenav>
+          <Sidenav
+            name={this.props.info.username}
+            showDate={this.showDateFunc}
+          ></Sidenav>
           <div className="main">
-            {this.props.info.username ? (
-              <div className="tl">
-                <Tl name={this.props.info.username}></Tl>
-              </div>
-            ) : null}
-
             {this.state.queue ? (
               <Queue
                 forceQueue={this.forceQueue}

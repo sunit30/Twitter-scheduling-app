@@ -29,6 +29,13 @@
   background-color: rgb(141, 141, 141);
   color: white;
 }
+.tl {
+  width: 60%;
+  margin: auto;
+  border: 1px solid #e6ecf0;
+  border-radius: 7px;
+  box-shadow: 0 0 5px 1px rgb(238, 238, 238);
+}
 
 @media screen and (max-height: 450px) {
   .sidenav {

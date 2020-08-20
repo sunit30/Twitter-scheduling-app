@@ -3,8 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import Form from "./components/Form/Form";
 import Auth from "./components/Auth/Auth";
-
 import Dashboard from "./components/Dashboard/Dashboard";
+//import Darkmode from "darkmode-js";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class App extends React.Component {
     this.setState({ inf: info });
   }
   render() {
+    //new Darkmode().showWidget();
     return (
       <div>
         <Auth
