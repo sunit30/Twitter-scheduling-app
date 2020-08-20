@@ -8,14 +8,14 @@ import Tl from "../Tl/Tl";
 class Sidenav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { open: false, openTl: false, openPic: false };
+    this.state = { openPn: false, openTl: false, openPic: false };
   }
-  onOpenModal = () => {
-    this.setState({ open: true });
+  onOpenModalPn = () => {
+    this.setState({ openPn: true });
   };
 
-  onCloseModal = () => {
-    this.setState({ open: false });
+  onCloseModalPn = () => {
+    this.setState({ openPn: false });
   };
   onOpenModalTl = () => {
     this.setState({ openTl: true });
@@ -32,7 +32,7 @@ class Sidenav extends React.Component {
     this.setState({ openPic: false });
   };
   render() {
-    const { open } = this.state;
+    //const { open } = this.state;
     // var btns = document.getElementsByClassName("sidenav_div");
 
     // // Loop through the buttons and add the active class to the current/clicked button
@@ -59,7 +59,7 @@ class Sidenav extends React.Component {
           >
             Schedule Tweet
           </div>
-          <div className="sidenav_div" onClick={this.onOpenModal}>
+          <div className="sidenav_div" onClick={this.onOpenModalPn}>
             Post Now
           </div>
           <div className="sidenav_div" onClick={this.onOpenModalTl}>
@@ -70,9 +70,8 @@ class Sidenav extends React.Component {
           </div>
         </div>
 
-        <Modal open={open} onClose={this.onCloseModal} center>
-          <h2>Simple centered modal</h2>
-          <PostNow onClose={this.onCloseModal}></PostNow>
+        <Modal open={this.state.openPn} onClose={this.onCloseModalPn} center>
+          <PostNow onClose={this.onCloseModalPn}></PostNow>
         </Modal>
         <Modal open={this.state.openTl} onClose={this.onCloseModalTl} center>
           {this.props.name ? (

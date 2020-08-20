@@ -67,6 +67,7 @@ class Queue extends React.Component {
   //   } else return 0;
   // };
   render() {
+    //console.log("m u", this.state.mountUpdate);
     const { open } = this.state;
     let arr = null;
     if (this.state.queueObj) {

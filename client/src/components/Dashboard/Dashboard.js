@@ -1,6 +1,6 @@
 import React from "react";
 import { format } from "morgan";
-
+import emptyLogo from "../Dashboard/empt.png";
 import Date from "../Date/Date";
 import Queue from "../Queue/Queue";
 import "../Dashboard/Dashboard.scss";
@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
       >
         <div className="navbar_fixed">
           <div className="navbar">
-            <div></div>
+            <div id="blankDiv"></div>
             <div className="brand_name">Post.It.</div>
 
             {this.props.info ? (
@@ -50,13 +50,6 @@ class Dashboard extends React.Component {
             showDate={this.showDateFunc}
           ></Sidenav>
           <div className="main">
-            <Date
-              //showDate={this.state.showDateComp}
-              //hideDate={this.hideDateFunc}
-              info={this.props.info}
-              forceQueue={this.forceQueue}
-            ></Date>
-
             {this.state.queue ? (
               <Queue
                 forceQueue={this.forceQueue}
@@ -64,8 +57,17 @@ class Dashboard extends React.Component {
                 queue={this.state.queue}
               ></Queue>
             ) : (
-              <div>Queue is empty</div>
+              <div className="queueEmpty">
+                <img src={emptyLogo} alt="empty" />
+                <div>Queue is empty</div>
+              </div>
             )}
+            <Date
+              //showDate={this.state.showDateComp}
+              //hideDate={this.hideDateFunc}
+              info={this.props.info}
+              forceQueue={this.forceQueue}
+            ></Date>
           </div>
         </div>
       </div>

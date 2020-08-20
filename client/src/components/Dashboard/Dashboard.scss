@@ -25,6 +25,10 @@
   font-weight: 700;
   background-color: #eaf0f3;
 }
+#blankDiv {
+  background-color: #eaf0f3;
+  width: 15%;
+}
 .brand_name {
   font-weight: 900;
   padding-top: 14px;
@@ -43,12 +47,39 @@
   border: 1px solid #5b778a;
   display: inline-block;
 }
-
+.queueEmpty {
+  padding: 60px;
+  border: 1px solid #e6ecf0;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 0 5px 1px rgb(238, 238, 238);
+  color: rgba(17, 17, 63, 0.644);
+  font-size: 1.28rem;
+  font-weight: 400;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+}
+.queueEmpty img {
+  margin-bottom: 14px;
+  width: 20%;
+  height: auto;
+  background-color: white;
+}
+.queueEmpty div {
+  background-color: white;
+  text-align: center;
+}
 .body {
-  padding-top: 100px;
+  padding-top: 130px;
   display: flex;
   border-left: 5px solid #e6ecf0;
   justify-content: center;
+  min-height: 100vh;
 }
 .main {
   width: 90%;
