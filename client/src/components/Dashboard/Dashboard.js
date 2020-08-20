@@ -50,6 +50,13 @@ class Dashboard extends React.Component {
             showDate={this.showDateFunc}
           ></Sidenav>
           <div className="main">
+            <Date
+              //showDate={this.state.showDateComp}
+              //hideDate={this.hideDateFunc}
+              info={this.props.info}
+              forceQueue={this.forceQueue}
+            ></Date>
+
             {this.state.queue ? (
               <Queue
                 forceQueue={this.forceQueue}
@@ -59,13 +66,6 @@ class Dashboard extends React.Component {
             ) : (
               <div>Queue is empty</div>
             )}
-
-            <Date
-              //showDate={this.state.showDateComp}
-              //hideDate={this.hideDateFunc}
-              info={this.props.info}
-              forceQueue={this.forceQueue}
-            ></Date>
           </div>
         </div>
       </div>

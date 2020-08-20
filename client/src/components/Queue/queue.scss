@@ -1,10 +1,11 @@
 .qcontain {
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 .qblock {
+  word-wrap: break-word;
   box-sizing: border-box;
-  height: 95px;
+  height: max-content;
   font-family: "Lemonada", cursive;
   border: 1px solid #e6ecf0;
   text-align: center;
