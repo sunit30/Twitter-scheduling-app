@@ -45,6 +45,7 @@ class Dashboard extends React.Component {
 
         <div className="body">
           <Sidenav
+            infoJson={this.props.info._json}
             name={this.props.info.username}
             showDate={this.showDateFunc}
           ></Sidenav>

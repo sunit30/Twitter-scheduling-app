@@ -8,7 +8,7 @@ import Tl from "../Tl/Tl";
 class Sidenav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { open: false, openTl: false };
+    this.state = { open: false, openTl: false, openPic: false };
   }
   onOpenModal = () => {
     this.setState({ open: true });
@@ -23,6 +23,13 @@ class Sidenav extends React.Component {
 
   onCloseModalTl = () => {
     this.setState({ openTl: false });
+  };
+  onOpenModalPic = () => {
+    this.setState({ openPic: true });
+  };
+
+  onCloseModalPic = () => {
+    this.setState({ openPic: false });
   };
   render() {
     const { open } = this.state;
@@ -58,7 +65,10 @@ class Sidenav extends React.Component {
           <div className="sidenav_div">
             <button onClick={this.onOpenModalTl}>Timeline</button>
           </div>
-          <div className="sidenav_div">4</div>
+          <div className="sidenav_div">
+            {" "}
+            <button onClick={this.onOpenModalPic}>Profile Pic</button>
+          </div>
         </div>
 
         <Modal open={open} onClose={this.onCloseModal} center>
@@ -69,6 +79,18 @@ class Sidenav extends React.Component {
           {this.props.name ? (
             <div className="tl">
               <Tl name={this.props.name}></Tl>
+            </div>
+          ) : null}
+        </Modal>
+
+        <Modal open={this.state.openPic} onClose={this.onCloseModalPic} center>
+          {this.props.infoJson ? (
+            <div id="profile_pic_div">
+              <img
+                id="modalPic"
+                src={this.props.infoJson.profile_image_url_https}
+                alt="profile_pic"
+              />
             </div>
           ) : null}
         </Modal>
