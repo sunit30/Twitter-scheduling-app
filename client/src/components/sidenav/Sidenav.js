@@ -33,22 +33,22 @@ class Sidenav extends React.Component {
   };
   render() {
     const { open } = this.state;
-    var btns = document.getElementsByClassName("sidenav_div");
+    // var btns = document.getElementsByClassName("sidenav_div");
 
-    // Loop through the buttons and add the active class to the current/clicked button
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active");
+    // // Loop through the buttons and add the active class to the current/clicked button
+    // for (var i = 0; i < btns.length; i++) {
+    //   btns[i].addEventListener("click", function () {
+    //     var current = document.getElementsByClassName("active");
 
-        // If there's no active class
-        if (current.length > 0) {
-          current[0].className = current[0].className.replace(" active", "");
-        }
+    //     // If there's no active class
+    //     if (current.length > 0) {
+    //       current[0].className = current[0].className.replace(" active", "");
+    //     }
 
-        // Add the active class to the current/clicked button
-        this.className += " active";
-      });
-    }
+    //     // Add the active class to the current/clicked button
+    //     this.className += " active";
+    //   });
+    // }
 
     return (
       <div>
@@ -59,15 +59,14 @@ class Sidenav extends React.Component {
           >
             Schedule Tweet
           </div>
-          <div className="sidenav_div">
-            <button onClick={this.onOpenModal}>Post Now</button>
+          <div className="sidenav_div" onClick={this.onOpenModal}>
+            Post Now
           </div>
-          <div className="sidenav_div">
-            <button onClick={this.onOpenModalTl}>Timeline</button>
+          <div className="sidenav_div" onClick={this.onOpenModalTl}>
+            Timeline
           </div>
-          <div className="sidenav_div">
-            {" "}
-            <button onClick={this.onOpenModalPic}>Profile Pic</button>
+          <div className="sidenav_div" onClick={this.onOpenModalPic}>
+            Profile Pic
           </div>
         </div>
 

@@ -12,17 +12,20 @@
 }
 .sidenav .sidenav_div:first-child {
   margin-top: 100px;
+  background-color: rgb(141, 141, 141);
+  color: white;
 }
 .sidenav .sidenav_div {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 0px 6px 0px;
   margin: 0 5px 12px 5px;
   border: 5px solid #e6ecf0;
-
+  text-align: center;
   border-radius: 10px;
 }
 
 .sidenav .sidenav_div:hover {
-  color: #d5d7d8;
+  background-color: rgb(141, 141, 141);
+  color: white;
   cursor: pointer;
 }
 .active {
