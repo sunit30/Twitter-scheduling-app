@@ -14,7 +14,7 @@
   padding: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-bottom: 0;
+  padding-bottom: 5px;
   background-color: white;
   border-radius: 7px;
   box-shadow: 0 0 5px 1px rgb(238, 238, 238);
@@ -76,4 +76,25 @@
   background-color: white;
   box-shadow: 0 0 10px 1px rgb(226, 226, 226);
   cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .delete {
+    font-size: 10px;
+    padding: 1px 4px;
+    margin-right: 5px;
+  }
+  .update {
+    font-size: 10px;
+    padding: 1px 4px;
+    margin-right: 5px;
+  }
+  .date {
+    font-size: 12px;
+    margin-right: 5px;
+  }
+  .qblock {
+    font-size: 1.1rem;
+    padding: 14px;
+    padding-bottom: 5px;
+  }
 }

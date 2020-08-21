@@ -84,3 +84,26 @@
 .main {
   width: 90%;
 }
+@media only screen and (max-width: 600px) {
+  #dashboard {
+    padding-left: 0;
+  }
+  .body {
+    padding-top: 280px;
+    border-left: none;
+  }
+  .navbar_fixed {
+    width: 92%;
+    margin-bottom: 0 !important;
+    margin-left: 50px;
+  }
+  #profile_pic {
+    width: 40px;
+  }
+
+  #navbar_inner_flex div {
+    width: 60px;
+    font-size: 1rem;
+    margin-right: 12px;
+  }
+}
