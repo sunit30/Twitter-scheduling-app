@@ -44,11 +44,28 @@
   height: auto;
 }
 
-@media screen and (max-height: 450px) {
+// @media screen and (max-height: 450px) {
+//   .sidenav {
+//     padding-top: 15px;
+//   }
+//   .sidenav .sidenav_div {
+//     font-size: 18px;
+//   }
+//}
+@media only screen and (max-width: 600px) {
   .sidenav {
-    padding-top: 15px;
+    top: 58;
+    left: 0;
+    width: 100vw;
+    height: 170px;
+    padding-top: 0;
+    margin-top: 65px;
+  }
+  .sidenav .sidenav_div:first-child {
+    margin-top: 0;
   }
   .sidenav .sidenav_div {
-    font-size: 18px;
+    padding: 2px 0px 2px 0px;
+    margin: 0 5px 2px 5px;
   }
 }
