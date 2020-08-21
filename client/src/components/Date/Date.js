@@ -37,7 +37,7 @@ class MyApp extends Component {
           value={this.state.date}
           minDate={new Date()}
         />
-        <button onClick={this.onSelect}>Select</button>
+        <button class="dateSelect" onClick={this.onSelect}>Select</button>
         {this.state.Selected == true ? (
           <Schedule
             date={this.state.date}

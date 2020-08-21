@@ -1,4 +1,4 @@
-#newMessage {
+#newMes {
   font-family: "Quattrocento Sans", sans-serif;
   color: rgba(17, 17, 63, 0.644);
   font-size: 1.2rem;
@@ -10,8 +10,9 @@
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 5px;
+  padding-top: 20px;
 }
-.scheduleSubmit {
+.postNowSubmit {
   outline-style: none;
   border-color: rgba(30, 26, 66, 0.582);
   padding: 2px 12px;
@@ -21,7 +22,7 @@
   transition: box-shadow 0.3s, background-color 0.3s linear;
   margin-right: 10px;
 }
-.scheduleSubmit:hover {
+.postNowSubmit:hover {
   border-color: rgba(30, 26, 66, 0.733);
   font-weight: 900;
   background-color: white;

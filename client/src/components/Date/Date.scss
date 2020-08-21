@@ -37,5 +37,23 @@
 #date_div {
   width: max-content;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 25px;
+}
+.dateSelect {
+  outline-style: none;
+  border-color: rgba(30, 26, 66, 0.582);
+  padding: 2px 12px;
+  font-weight: 800;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: box-shadow 0.3s, background-color 0.3s linear;
+  margin-right: 10px;
+  margin-left: 7px;
+}
+.dateSelect:hover {
+  border-color: rgba(30, 26, 66, 0.733);
+  font-weight: 900;
+  background-color: white;
+  box-shadow: 0 0 10px 1px rgb(226, 226, 226);
+  cursor: pointer;
 }

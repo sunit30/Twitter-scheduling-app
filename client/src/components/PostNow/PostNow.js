@@ -2,6 +2,7 @@ import React from "react";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./PostNow.scss";
 
 class PostNow extends React.Component {
   constructor(props) {
@@ -18,7 +19,9 @@ class PostNow extends React.Component {
         >
           <textarea id="newMes"></textarea>
           <br />
-          <button type="submit">Post to Twitter</button>
+          <button className="postNowSubmit" type="submit">
+            Post to Twitter
+          </button>
         </form>
 
         <ToastContainer position="top-center" />

@@ -35,7 +35,9 @@ class Schedule extends React.Component {
           )}
 
           <br />
-          <button type="submit">Post to Twitter</button>
+          <button className="scheduleSubmit" type="submit">
+            Post to Twitter
+          </button>
         </form>
 
         <ToastContainer position="top-center" />
