@@ -29,6 +29,57 @@
 //   width: 320px;
 // }
 
+.landingPage {
+  /* background-color: black;
+ display: none;
+ width: 200px; */
+}
+/* body
+ {
+    padding: 0;
+    margin: 0;
+   
+ }
+ #banner1
+ {
+     width: 100%;
+     height: 580px;
+     
+ }
+ .text
+ {
+     font-family:serif;
+     position: absolute;
+     font-size:xx-large;
+     color: white;
+ }
+ .containe
+{
+    
+    position: relative;
+   
+    background-color: #d6e0eb;
+    
+}
+@media(max-width:770px)
+{
+  .containe{
+    margin : 0% 0 0 0%;
+    background-color:green; 
+    width: 100%;
+  }
+}
+ .mainDiv{
+  display: flex;
+ }
+ .text-centre{
+   margin-top: 220px;
+   background-color: white;
+   color:black;
+   border-radius: 10px;
+   box-shadow: 5px 5px 10px grey;
+ } */
+
 .landing_body {
   padding: 0;
   margin: 0;
@@ -58,7 +109,7 @@
   flex-direction: column;
   //justify-content: center;
   align-items: center;
-  height: 100vh;
+  //height: 100vh;
 }
 .firstDiv .divImage {
   padding-top: 20px;
@@ -84,6 +135,65 @@
   padding-top: 12px;
 }
 
+.secondDiv {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 10px solid rgba(91, 119, 138, 0.376);
+}
+.secondDivImage img {
+  display: block;
+  width: 50%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+
+.half {
+  width: 50%;
+  flex-basis: 50%;
+
+  flex-grow: 1;
+  color: #f6e8ea;
+  background: #ef626c;
+}
+.half2 {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.4rem;
+  color: white;
+  padding-right: 5px;
+}
+#divPink * {
+  background-color: rgb(255, 171, 198) !important;
+}
+#divOrange * {
+  background-color: lightsalmon !important;
+}
+#divPink p,
+#divOrange p {
+  color: white;
+}
+#divPink {
+  margin-top: 30px;
+}
+.heightDiv {
+  height: 10vh;
+}
+
+// p {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+
+//   width: 72%;
+//   margin: 0;
+//   text-align: center;
+// }
+
 @media only screen and (max-width: 600px) {
   #logout {
     width: 32px;
@@ -92,5 +202,9 @@
     padding-left: 10px;
     margin-top: 0;
     margin-left: 0;
+  }
+  .half {
+    width: 100%;
+    flex-basis: 100%;
   }
 }
