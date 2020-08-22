@@ -5,6 +5,7 @@ import Date from "../Date/Date";
 import Queue from "../Queue/Queue";
 import "../Dashboard/Dashboard.scss";
 import Sidenav from "../sidenav/Sidenav";
+import brandLogo from "../Auth/images/Untitled.png";
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,10 @@ class Dashboard extends React.Component {
         <div className="navbar_fixed">
           <div className="navbar">
             <div id="blankDiv"></div>
-            <div className="brand_name">Post.It.</div>
+            <div className="brand_name">
+              <img src={brandLogo} alt="logo" />
+              <div>Post.It.</div>
+            </div>
 
             {this.props.info ? (
               <div id="navbar_inner_flex">

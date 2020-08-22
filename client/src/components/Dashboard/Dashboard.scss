@@ -31,9 +31,20 @@
 }
 .brand_name {
   font-weight: 900;
-  padding-top: 14px;
+  padding-top: 7px;
   background-color: #eaf0f3;
   font-size: 1.5rem;
+  display: flex;
+}
+.brand_name img {
+  width: 30%;
+  height: auto;
+  background-color: #eaf0f3;
+}
+.brand_name div {
+  background-color: #eaf0f3;
+  margin-top: 14px;
+  margin-left: 5px;
 }
 #profile_pic_div {
   background-color: #eaf0f3;

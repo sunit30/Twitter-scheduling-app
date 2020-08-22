@@ -14,20 +14,76 @@
   margin-top: 7px;
   margin-left: 10px;
 }
-#login_div {
+// #login_div {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   margin-top: 20vh;
+// }
+// .login_text {
+//   margin-top: 10px;
+//   font-weight: 600;
+//   font-size: 1.3rem;
+// }
+// #toplogo {
+//   width: 320px;
+// }
+
+.landing_body {
+  padding: 0;
+  margin: 0;
+  font-family: "Quattrocento Sans", sans-serif;
+}
+#login_div * {
+  background-color: white !important;
+}
+.navDiv {
+  display: flex;
+  justify-content: center;
+  height: 58px;
+  align-items: center;
+  font-weight: 900;
+  //padding-top: 14px;
+  //background-color: #eaf0f3;
+  font-size: 1.5rem;
+  border-bottom: 5px solid #5b778a60;
+}
+.navDiv img {
+  width: 50px;
+  margin-right: 8px;
+  margin-top: 3px;
+}
+.firstDiv {
   display: flex;
   flex-direction: column;
+  //justify-content: center;
   align-items: center;
-  margin-top: 20vh;
+  height: 100vh;
 }
-.login_text {
-  margin-top: 10px;
-  font-weight: 600;
-  font-size: 1.3rem;
+.firstDiv .divImage {
+  padding-top: 20px;
+  padding-bottom: 14px;
+  display: flex;
+  justify-content: center;
 }
-#toplogo {
-  width: 320px;
+.firstDiv .divText {
+  text-align: center;
+  font-weight: 900;
+  padding-top: 14px;
+  background-color: #eaf0f3;
+  font-size: 1.5rem;
 }
+.firstDiv img {
+  width: 30%;
+  height: auto;
+  //margin: auto;
+}
+
+.firstDiv .divText a img {
+  width: 60%;
+  padding-top: 12px;
+}
+
 @media only screen and (max-width: 600px) {
   #logout {
     width: 32px;
